@@ -1,0 +1,20 @@
+{{define base}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{template "title" .}}</title>
+</head>
+
+<body>
+    <header>
+        <a href="/">BitSnipps</a>
+    </header>
+    {{templkate "nav" .}}
+    <main>
+        {{template "main" .}}
+    </main>
+    <footer>Created by git@Merayven &copy; Powered by Go</footer>
+</body>
+</html>
