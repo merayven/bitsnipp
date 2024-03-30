@@ -12,9 +12,9 @@ func home(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Server", "Go")
 
 	files := []string{
-		".ui/html/pages/base.html",
-		".ui/html/pages/index.html",
-		".ui/html/common/nav.html",
+		"./ui/html/pages/base.html",
+		"./ui/html/pages/index.html",
+		"./ui/html/common/nav.html",
 	}
 
 	ts, err := template.ParseFiles(files...)
@@ -30,8 +30,6 @@ func home(w http.ResponseWriter, r *http.Request) {
 		log.Print(err.Error())
 		http.Error(w, "Internal server error", http.StatusInternalServerError)
 	}
-
-	w.Write([]byte("Hello from Snippetbox"))
 }
 
 func snippetView(w http.ResponseWriter, r *http.Request) {
