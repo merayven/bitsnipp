@@ -23,8 +23,12 @@ func snippetView(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(msg))
 }
 
-func snippetCreate(w http.ResponseWriter, r *http.Request) {
+func getSnippetCreate(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Snippet Create"))
+}
+
+func postSnippetCreate(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("Save a Snippet..."))
 }
 
 func main() {
@@ -32,7 +36,8 @@ func main() {
 
 	mux.HandleFunc("GET /{$}", home)
 	mux.HandleFunc("GET /snippet/view/{id}/{$}", snippetView)
-	mux.HandleFunc("GET /snippet/create", snippetCreate)
+	mux.HandleFunc("GET /snippet/create", getSnippetCreate)
+	mux.HandleFunc("POST /snippet/create", postSnippetCreate)
 
 	log.Print("Starting server on :4000")
 
