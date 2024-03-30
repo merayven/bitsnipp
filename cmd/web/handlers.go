@@ -12,8 +12,8 @@ func home(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Server", "Go")
 
 	files := []string{
-		"./ui/html/pages/base.html",
-		"./ui/html/pages/index.html",
+		"./ui/html/base.html",
+		"./ui/html/pages/home.html",
 		"./ui/html/common/nav.html",
 	}
 
