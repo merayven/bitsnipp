@@ -25,5 +25,5 @@ func main() {
 
 	err := http.ListenAndServe(*addr, app.routes())
 	logger.Error(err.Error())
-	os.Exit(-1)
+	os.Exit(1)
 }
