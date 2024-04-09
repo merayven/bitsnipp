@@ -30,11 +30,6 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = ts.ExecuteTemplate(w, "base", nil)
-	if err != nil {
-		app.serverError(w, r, err)
-	}
-
 	data := templateData{
 		Snippets: snippets,
 	}
@@ -69,14 +64,14 @@ func (app *application) snippetView(w http.ResponseWriter, r *http.Request) {
 		"./ui/html/pages/view.html",
 	}
 
-	data := templateData{
-		Snippet: snippet,
-	}
-
 	ts, err := template.ParseFiles(files...)
 	if err != nil {
 		app.serverError(w, r, err)
 		return
+	}
+
+	data := templateData{
+		Snippet: snippet,
 	}
 
 	err = ts.ExecuteTemplate(w, "base", data)
