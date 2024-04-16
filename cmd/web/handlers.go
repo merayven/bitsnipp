@@ -24,6 +24,12 @@ type UserCreateForm struct {
 	validator.Validator `form:"-"`
 }
 
+type UserLoginForm struct {
+	Name                string `form:"name"`
+	Password            string `form:"password"`
+	validator.Validator `form:"-"`
+}
+
 func (app *application) home(w http.ResponseWriter, r *http.Request) {
 	snippets, err := app.snippets.Latest()
 	if err != nil {
@@ -153,7 +159,6 @@ func (app *application) userSignupPost(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *application) userLogin(w http.ResponseWriter, r *http.Request) {
-
 }
 
 func (app *application) userLoginPost(w http.ResponseWriter, r *http.Request) {
