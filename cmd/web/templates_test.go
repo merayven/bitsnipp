@@ -3,6 +3,8 @@ package main
 import (
 	"testing"
 	"time"
+
+	"bitsnipp.merayven.net/internal/assert"
 )
 
 func TestHumanDate(t *testing.T) {
@@ -32,9 +34,7 @@ func TestHumanDate(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			hd := humanDate(tt.tm)
 
-			if hd != tt.want {
-				t.Errorf("want %q; got %q", tt.want, tt.tm)
-			}
+			assert.Equal(t, hd, tt.want)
 		})
 	}
 }
